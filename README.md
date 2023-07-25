@@ -1,0 +1,5 @@
+### Schema
+
+- Citizens
+- Officials
+- Vehicle

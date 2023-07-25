@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "VehicleCertificate": {
+      "$ref": "#/definitions/VehicleCertificate"
+    }
+  },
+  "required": [
+    "VehicleCertificate"
+  ],
+  "title": "VehicleCertificate",
+  "definitions": {
+    "VehicleCertificate": {
+      "$id": "#/properties/VehicleCertificate",
+      "type": "object",
+      "title": "The VehicleCertificate Schema",
+      "required": [
+        "regnumber",
+        "mnfyear",
+        "dateofaward",
+        "nameofScheme",
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "dateofaward": {
+          "type": "string",
+          "title": "Date Of Award",
+          "format": "date"
+        },
+        "nameofScheme": {
+          "type": "string",
+          "title": "Name of Scheme"
+        },
+        "regnumber": {
+          "type": "string",
+          "title": "Vehicle Registration Number"
+        },
+        "mnfyear": {
+          "type": "string",
+          "title":"Manufacturing year"
+        }
+      }
+    }
+  },
+  "_osConfig": {
+    "uniqueIndexFields": [],
+    "privateFields": [],
+    "privateFieldConfig": "HASH",
+    "internalFieldConfig": "FULL",
+    "systemFields": [
+      "osCreatedAt",
+      "osUpdatedAt",
+      "osCreatedBy",
+      "osUpdatedBy"
+    ],
+    "roles": ["Official"],
+    "inviteRoles": [
+      "anonymous"
+    ],
+    "credentialTemplate": {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://gist.githubusercontent.com/ddevadat/4bb88499cf374f7ba8d1c9138f52eb67/raw/7c62ff3d2af28e1abc6dfcc2c95b89a97c029554/vehiclecertificate_ct.json"
+      ],
+      "type": [
+        "VerifiableCredential"
+      ],
+      "issuanceDate": "{{osCreatedAt}}",
+      "credentialSubject": {
+        "type": "Vehicle",
+        "name": "{{name}}",
+        "mnfyear": "{{mnfyear}}",
+        "regnumber": "{{regnumber}}"
+      },
+      "evidence": {
+        "type": "Registration",
+        "nameofScheme": "{{nameofScheme}}",
+        "dateofaward": "{{dateofaward}}"
+      },
+      "issuer": "did:web:sunbirdrc.dev/vc/Official"
+    },
+    "certificateTemplates": {
+      "html": "minio://Issuer/3831635a-7ea3-44d4-a2cb-c50ef9f00ad6/templates/documents/ab8f215c-9f30-4f9f-9458-fb9b1d11cd5c-prematricscholarship.svg"
+    }
+  }
+}
