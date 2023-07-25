@@ -31,3 +31,11 @@ docker compose up -d --force-recreate --no-deps keycloak
 
 ```
 
+Login to keycloak
+```
+create a role admin
+create a user admin
+assign admin role to admin user
+
+```
+
