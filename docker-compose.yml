@@ -45,7 +45,7 @@ services:
       - elastic_search_password=${ELASTIC_SEARCH_PASSWORD}
       - search_providerName=${SEARCH_PROVIDER_NAME-dev.sunbirdrc.registry.service.ElasticSearchService}
       - sunbird_sso_realm=${KEYCLOAK_REALM-sunbird-rc}
-      - sunbird_sso_url=http://demo-admin-portal.sunbirdrc.oci/auth
+      - sunbird_sso_url=${RC_KEYCLOAK_URL}
       - sunbird_sso_admin_client_id=${KEYCLOAK_ADMIN_CLIENT_ID-admin-api}
       - sunbird_sso_client_id=${KEYCLOAK_CLIENT_ID-registry-frontend}
       - sunbird_sso_admin_client_secret=${KEYCLOAK_SECRET}
